@@ -1,66 +1,91 @@
 *{
     box-sizing: border-box;
 }
-:root{}
 body{
-    margin: 0;
+  height: 300vh;
+  margin: 0;
 }
-.header-menu{
-    margin: auto;
-    background-color: bisque;
+.page-header{    /* обращение к header */
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: aquamarine;
+    -webkit-box-shadow: o 3px 3px 0 #B5B5B5;
+    box-shadow: 0 3px 3px 0 #B5B5B5;
+
 }
-.header-menu__nav{
+.list{    /* обращаемся к ul */
     padding: 0;
     list-style: none;
     text-align: center;
 }
-.header-menu__list{
+.list-item{
+    
     display: inline-block;
-    border: 1px solid #b5b5b5;
-    background-color: azure;
+    position: relative;
     color: aqua;
+    /* transition: color, background-color 0.6s ease .2s; */
+    /* transition-property: color, background-color;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    transition-delay: 200ms; */
+
 }
-.header-menu__list::after,
-.header-menu__list::before{
+.list-item::after,
+.list-item::before{
     display: inline-block;
     content: '';
-    width:0%;
     height: 3px;
+    width: 0%;
     background-color: blue;
-    transition:  0.9s 0.2s  ease-in-out; 
-    
-} 
-
-.header-menu__list:hover::after,
-.header-menu__list:hover:before{
-    width: 100%;
-    transition:  0.9s  ease-in-out; 
     
 }
+.list-item:hover::before,
+.list-item:hover::after{
+    position: absolute;
+    width: 100%;   
+    transition: 0.5s 0.2s  ;  
+}
+::after{
+    right: 0;
+    bottom: -5px;
+}
+::before{
+    top: -5px;
+    left: 0;
+}
 
-/* .header-menu__list:hover::after{
-    transform: rotateY(180deg);
-    transition:  0.2s  ease;
-
-
-} */
-.header-menu__link{
+.link{
     display: inline-block;
-    text-decoration: none;
-    margin:0;
     padding: 1em;
+    background-color:azure;
+    text-decoration: none;  
 }
 
+main{
+    padding-top: 6em;
+}
 
-
-/* .header-menu__list::after,
-.header-menu__list::before{
-    display: inline;
-    content: '';
-    width:100%;
-    height: 3px;
-    background-color: blue;
-} */
-
-
-
+h1{
+    width: 50vw;
+    margin: auto;
+    position: relative;
+    background-color: green;
+    text-align: center;
+}
+h1::before,
+h1::after{
+    content:url(../icon/phone.svg);
+    display: inline-block;
+    width: 1em;
+    position: absolute;
+    top: 0.1em;
+    
+}
+h1::before{
+    left: 100%;
+}
+h1::after{
+    right:100%;
+}
