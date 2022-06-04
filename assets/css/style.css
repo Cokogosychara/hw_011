@@ -25,6 +25,7 @@ body{
     display: inline-block;
     position: relative;
     color: aqua;
+    margin: 5px;
     /* transition: color, background-color 0.6s ease .2s; */
     /* transition-property: color, background-color;
     transition-duration: 600ms;
@@ -55,7 +56,29 @@ body{
     top: -5px;
     left: 0;
 }
-
+.link::after,
+.link::before{
+    display: inline-block;
+    content: '';
+    height: 0%;
+    width: 3px;
+    background-color: blue;
+    
+}
+.link:hover::before,
+.link:hover::after{
+    position: absolute;
+    height: 100%;   
+    transition: 0.5s 0.2s  ;  
+}
+a::after{
+    right: 103% ;
+    bottom: 0;
+}
+a::before{
+    top: 0 ;
+    left: 103%;
+}
 .link{
     display: inline-block;
     padding: 1em;
